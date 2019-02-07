@@ -22,7 +22,7 @@ function errorHandler(err, req, res, next) {
     res.status(500).render("error_template", { error: err});
 }
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+    res.sendFile('index.html');
 });
 
 MongoClient.connect(process.env.MONGODB_URI || url,function(err, db){
