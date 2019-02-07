@@ -21,9 +21,7 @@ function errorHandler(err, req, res, next) {
     console.error(err.stack);
     res.status(500).render("error_template", { error: err});
 }
-app.get('/', function(req, res) {
-    res.sendFile('index.html');
-});
+
 
 MongoClient.connect(process.env.MONGODB_URI || url,function(err, db){
     assert.equal(null, err);
