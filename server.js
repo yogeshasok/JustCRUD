@@ -24,11 +24,12 @@ function errorHandler(err, req, res, next) {
 
 
 MongoClient.connect(process.env.MONGODB_URI || url,function(err, db){
+    console.log(err);
     assert.equal(null, err);
     console.log('Successfully connected to MongoDB.');
 
     var records_collection = db.collection('records');
-
+    console.log("REcordds**** "+records_collection);
     app.get('/records', function(req, res, next) {
         // console.log("Received get /records request");
         records_collection.find({}).toArray(function(err, records){
